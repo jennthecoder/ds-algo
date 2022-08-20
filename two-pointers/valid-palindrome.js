@@ -14,33 +14,4 @@ function isPalindrome (s){
 */
 
 
-function isPalindrome (s) {
-    if(!s.length) return true;
-    s = s.toLowerCase();
-    return isValid(s);
-}
-
-function isValid(s){
-    let [left,right] = [0, s.length - 1];
-
-    while(left < right){
-        while((left < right) && isNonAlphaNumeric(s[left])) left++;
-        while((left < right) && isNonAlphaNumeric(s[right])) right--;
-
-        const isSame = s[left] === s[right]
-        if(!isSame) return false;
-
-        left++; right--;
-    }
-    return true;
-}
-
-
-function isNonAlphaNumeric(char) {
-    const isNonAlpha = char < 'a' || 'z' < char;
-    const isNonNumeric = char < '0' || '9' < char;
-
-    return isNonAlpha && isNonNumeric;
-}
-
 console.log(isPalindrome("A man, a plan, a canal: Panama")) //True;
